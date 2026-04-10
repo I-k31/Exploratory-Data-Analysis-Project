@@ -3,18 +3,24 @@ Ontario Hotel Performance EDA (2020–2023)
 
 Overview:
 This project performs an exploratory data analysis (EDA) on Ontario hotel performance data from 2020 to 2023, covering three key metrics across 20+ regions and sub-regions. The analysis explores the impact of COVID-19 on hotel performance and the subsequent recovery across different parts of Ontario.
-Dataset: Ontario Hotel Statistics — Ontario Open Data Portal
+
+Dataset: Ontario Hotel Statistics — Ontario Open Data Portal (https://data.ontario.ca/dataset/hotel-statistics/resource/35d335c6-b2e9-46cc-b4b1-ca149a5a3aba)
 Source: CBRE Hotels
+
 Tools & Libraries
 
-Language: Python
-Packages: pandas, Matplotlib, Seaborn
+-Language: Python
+-Packages: pandas, Matplotlib, Seaborn
 
-Data Preprocessing: The raw Excel file contained merged headers, multi-level region hierarchies, empty spacer rows, and a source footer row. The following preprocessing steps were performed:
+Data Preprocessing: The raw Excel file contained merged headers, multi-level region hierarchies, empty spacer rows, and a source footer row. 
 
-Manual: Restructured the multi-level headers into a flat single-header format in Excel before loading into Python
-Python: Assigned clean column names, removed filler columns, stripped empty and header/footer rows, converted occupancy values to percentages, and converted ADR and RevPAR to numeric with 2 decimal places
-Region summary rows (e.g. "Greater Toronto Area", "Eastern Ontario") were separated from specific sub-regions for more accurate analysis
+The following preprocessing steps were performed:
+
+-Manual: Restructured the multi-level headers into a flat single-header format in Excel before loading into Python
+
+-Python: Assigned clean column names, removed filler columns, stripped empty and header/footer rows, converted occupancy values to percentages, and converted ADR and RevPAR to numeric with 2 decimal places
+
+-Region summary rows (e.g. "Greater Toronto Area", "Eastern Ontario") were separated from specific sub-regions for more accurate analysis
 
 Analysis & Key Findings
 1. COVID Recovery (2020 → 2023)
