@@ -1,5 +1,7 @@
 Ontario Hotel Performance EDA (2020–2023)
-Overview
+
+
+Overview:
 This project performs an exploratory data analysis (EDA) on Ontario hotel performance data from 2020 to 2023, covering three key metrics across 20+ regions and sub-regions. The analysis explores the impact of COVID-19 on hotel performance and the subsequent recovery across different parts of Ontario.
 Dataset: Ontario Hotel Statistics — Ontario Open Data Portal
 Source: CBRE Hotels
@@ -8,8 +10,7 @@ Tools & Libraries
 Language: Python
 Packages: pandas, Matplotlib, Seaborn
 
-Data Preprocessing
-The raw Excel file contained merged headers, multi-level region hierarchies, empty spacer rows, and a source footer row. The following preprocessing steps were performed:
+Data Preprocessing: The raw Excel file contained merged headers, multi-level region hierarchies, empty spacer rows, and a source footer row. The following preprocessing steps were performed:
 
 Manual: Restructured the multi-level headers into a flat single-header format in Excel before loading into Python
 Python: Assigned clean column names, removed filler columns, stripped empty and header/footer rows, converted occupancy values to percentages, and converted ADR and RevPAR to numeric with 2 decimal places
