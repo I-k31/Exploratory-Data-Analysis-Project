@@ -44,4 +44,4 @@ The hospitality sector faced unprecedented disruptions starting in 2020. Underst
 ##  How to Run the Analysis
 1. Clone the repository: `git clone https://github.com/I-k31/Exploratory-Data-Analysis-Project.git`
 2. Ensure you have the required dependencies: `pip install pandas matplotlib seaborn openpyxl`
-3. Execute the Jupyter Notebook: `jupyter notebook "EDA Project.ipynb"`
+3. Execute the Jupyter Notebook: `jupyter notebook "EDA Project1.ipynb"`
