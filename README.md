@@ -1,59 +1,47 @@
-Ontario Hotel Performance EDA (2020–2023)
+# Ontario Hotel Performance Analysis (2020–2023)
 
+##  Executive Summary
+This extensive Exploratory Data Analysis (EDA) investigates the performance dynamics of Ontario's hotel industry from the onset of the COVID-19 pandemic through its recovery phase (2020–2023). By analyzing distinct geospatial metrics—Occupancy Rate, Average Daily Rate (ADR), and Revenue Per Available Room (RevPAR)—this study highlights region-specific vulnerabilities, recovery trajectories, and emerging pricing strategies.
 
-Overview:
-This project performs an exploratory data analysis (EDA) on Ontario hotel performance data from 2020 to 2023, covering three key metrics across 20+ regions and sub-regions. The analysis explores the impact of COVID-19 on hotel performance and the subsequent recovery across different parts of Ontario.
+##  Business Context
+The hospitality sector faced unprecedented disruptions starting in 2020. Understanding the recovery spectrum across over 20 sub-regions in Ontario is critical for:
+- **Investment & Capital Allocation:** Identifying high-yield regions for future hotel development.
+- **Pricing Strategy Optimization:** Understanding the elasticity between Occupancy and ADR.
+- **Tourism Board Policy:** Directing targeted marketing campaigns to lagging regions.
 
-Dataset: Ontario Hotel Statistics — Ontario Open Data Portal (https://data.ontario.ca/dataset/hotel-statistics/resource/35d335c6-b2e9-46cc-b4b1-ca149a5a3aba)
-Source: CBRE Hotels
+##  Dataset Information
+- **Source:** [Ontario Open Data Portal - Hotel Statistics](https://data.ontario.ca/dataset/hotel-statistics/resource/35d335c6-b2e9-46cc-b4b1-ca149a5a3aba) via CBRE Hotels.
+- **Scope:** 20+ regions and sub-regions across Ontario.
+- **Key Metrics:**
+  - `Occupancy Rate (%)`: Percentage of available rooms sold.
+  - `Average Daily Rate (ADR)`: Average rental revenue per occupied room.
+  - `Revenue Per Available Room (RevPAR)`: Total room revenue divided by total available rooms.
 
-Tools & Libraries
+##  Methodology & Tech Stack
+- **Language:** Python 3.x
+- **Libraries:** `pandas` (Data manipulation), `matplotlib` & `seaborn` (Data visualization)
+- **Data Engineering:**
+  - Resolved multi-level hierarchical headers and unified them into a flat schema.
+  - Cleansed data by removing non-analytical spacer rows, metadata footers, and aggregated provincial summary rows to prevent double-counting.
+  - Standardized string formats and enforced numeric typings across all target metric columns.
 
--Language: Python
--Packages: pandas, Matplotlib, Seaborn
+##  Key Analytical Insights
 
-Data Preprocessing: The raw Excel file contained merged headers, multi-level region hierarchies, empty spacer rows, and a source footer row. 
+### 1. The Post-Pandemic Rebound (2020 vs. 2023)
+- **Urban Resurgence:** Downtown Toronto exhibited the most aggressive recovery, scaling from a devastating 21.9% occupancy in 2020 to 70.3% in 2023 (+48.4 pts).
+- **Border Town Anomalies:** Windsor displayed a unique "hockey-stick" recovery heavily concentrated in late 2022-2023, likely catalyzed by the resumption of cross-border commercial traffic from Detroit.
+- **Resilient Markets:** Thunder Bay maintained the highest baseline occupancy during the peak pandemic year (49.5% in 2020), showcasing the stability of northern essential travel.
 
-The following preprocessing steps were performed:
+### 2. Pricing Power Dynamics
+- **Volume vs. Premium Pricing:** There is only a weak positive correlation (r = 0.36) between Occupancy and ADR in 2023. This indicates decoupled strategies: 
+  - *High Volume, Moderate Rate:* Toronto Airport runs at peak capacity (80.0% occupancy) but moderates rates.
+  - *Moderate Volume, Premium Rate:* Downtown Toronto leverages its localized monopoly on luxury and corporate bookings to command peak market ADR ($323.82) despite trailing the airport in raw occupancy.
 
--Manual: Restructured the multi-level headers into a flat single-header format in Excel before loading into Python
+### 3. Revenue Leadership (RevPAR)
+- Downtown Toronto completely dominates the RevPAR landscape at $227.71, eclipsing the secondary tier (GTA and Downtown Ottawa at ~$150-$167). 
+- Northern and rural southern regions lag significantly (RevPAR ~$80), representing either low-cost transit accommodations or suppressed demand.
 
--Python: Assigned clean column names, removed filler columns, stripped empty and header/footer rows, converted occupancy values to percentages, and converted ADR and RevPAR to numeric with 2 decimal places
-
--Region summary rows (e.g. "Greater Toronto Area", "Eastern Ontario") were separated from specific sub-regions for more accurate analysis
-
-Analysis & Key Findings
-1. COVID Recovery (2020 → 2023)
-
-Downtown Toronto had the largest recovery, jumping from 21.9% to 70.3% occupancy — a gain of 48.4 percentage points
-Toronto Airport and GTA West also showed strong recoveries
-Windsor had a dramatic late recovery, going from 33% in 2020 to 72.9% in 2023 — likely driven by cross-border traffic from Detroit
-Thunder Bay held up the best during COVID with the highest 2020 occupancy at 49.5%
-
-2. Top & Bottom Performers (2023)
-Occupancy:
-
-Highest: Toronto Airport (80.0%), GTA West (74.3%), GTA East/North (73.5%)
-Lowest: Other Southern Ontario (54.0%), Other Eastern Ontario (60.4%), North Bay (61.6%)
-
-Average Daily Rate (ADR):
-
-Highest: Downtown Toronto ($323.82), Downtown Ottawa ($220.22), Niagara Falls ($207.25)
-Lowest: North Bay ($132.31), Sault Ste. Marie ($141.70), Windsor ($136.55)
-
-3. Correlation Between Occupancy and ADR
-
-Weak positive correlation of 0.36 between occupancy rate and ADR in 2023
-Suggests occupancy and pricing are somewhat independent — some regions charge premium rates regardless of fill rate (Downtown Toronto), while others have high occupancy but keep rates low (Toronto Airport, Windsor)
-
-4. Revenue Per Available Room (RevPAR)
-
-Downtown Toronto dominates at $227.71 — significantly ahead of all other regions
-GTA and Downtown Ottawa form a strong second tier around $150–$167
-North Bay and Other Southern Ontario are the weakest markets at around $80
-
-5. Occupancy Heatmap (2020–2023)
-
-Clear left-to-right darkening across all regions confirms universal recovery from COVID
-Niagara Falls shows the most dramatic color shift — severely impacted in 2020 (27.4%) but strongly recovered by 2023 (68.6%)
-Windsor stays light through 2021 then jumps sharply in 2022–2023
+##  How to Run the Analysis
+1. Clone the repository: `git clone https://github.com/I-k31/Exploratory-Data-Analysis-Project.git`
+2. Ensure you have the required dependencies: `pip install pandas matplotlib seaborn openpyxl`
+3. Execute the Jupyter Notebook: `jupyter notebook "EDA Project.ipynb"`
